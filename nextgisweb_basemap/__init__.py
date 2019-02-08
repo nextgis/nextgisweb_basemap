@@ -14,6 +14,9 @@ class BasemapComponent(Component):
     def initialize(self):
         from . import plugin
 
+        self.settings['qms_geoservices_url'] = self.settings.get('qms_geoservices_url', 'https://qms.nextgis.com/api/v1/geoservices/')
+        self.settings['qms_icons_url'] = self.settings.get('qms_icons_url', 'https://qms.nextgis.com/api/v1/icons/')
+
     @require('resource', 'webmap')
     def setup_pyramid(self, config):
         from . import view
