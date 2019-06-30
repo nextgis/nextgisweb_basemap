@@ -7,7 +7,7 @@ define([
     "dojo/dom-construct",
     "ngw-pyramid/i18n!basemap",
     "openlayers/ol",
-    "openlayers/proj4"
+    "../resource/proj4"
 ], function (
     declare,
     array,
