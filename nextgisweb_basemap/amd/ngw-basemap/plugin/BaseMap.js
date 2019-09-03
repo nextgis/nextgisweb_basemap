@@ -62,7 +62,8 @@ define([
                             "minZoom": qms.z_min ? qms.z_min : undefined,
                             "maxZoom": qms.z_max ? qms.z_max : undefined,
                             "attributions": qms.copyright_text,
-                            "projection": "EPSG:" + qms.epsg
+                            "projection": "EPSG:" + qms.epsg,
+                            "crossOrigin": "anonymous"
                         };
 
                         if (!qms.y_origin_top) {
