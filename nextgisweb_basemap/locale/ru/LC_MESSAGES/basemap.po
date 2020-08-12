@@ -20,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.6.0\n"
 
-#: amd/ngw-basemap/LayerWidget.js:35 model.py:23
+#: amd/ngw-basemap/LayerWidget.js:35 model.py:24
 msgid "Basemap"
 msgstr "Подложка веб-карты"
 

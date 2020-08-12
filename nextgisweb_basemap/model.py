@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals, print_function, absolute_import
+from __future__ import division, absolute_import, print_function, unicode_literals
+
 from sqlalchemy.ext.orderinglist import ordering_list
 
 from nextgisweb import db
