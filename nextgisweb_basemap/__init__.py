@@ -2,6 +2,7 @@
 from __future__ import division, absolute_import, print_function, unicode_literals
 
 from nextgisweb.component import Component, require
+from nextgisweb.lib.config import Option
 
 from .model import Base
 from .util import COMP_ID
@@ -14,21 +15,20 @@ class BasemapComponent(Component):
     def initialize(self):
         from . import plugin
 
-        self.settings['qms_geoservices_url'] = self.settings.get('qms_geoservices_url', 'https://qms.nextgis.com/api/v1/geoservices/')
-        self.settings['qms_icons_url'] = self.settings.get('qms_icons_url', 'https://qms.nextgis.com/api/v1/icons/')
-
     @require('resource', 'webmap')
     def setup_pyramid(self, config):
         from . import view
 
     def client_settings(self, request):
         return dict(
-            qms_geoservices_url=self.settings.get('qms_geoservices_url'),
-            qms_icons_url=self.settings.get('qms_icons_url'))
+            qms_geoservices_url=self.options['qms_geoservices_url'],
+            qms_icons_url=self.options['qms_icons_url'])
 
-    settings_info = (
-        dict(key='qms_geoservices_url', desc="Geo Services QMS API URL"),
-        dict(key='qms_icons_url', desc="Icons QMS API URL"),
+    option_annotations = (
+        Option('qms_geoservices_url', default='https://qms.nextgis.com/api/v1/geoservices/',
+               doc="Geo Services QMS API URL"),
+        Option('qms_icons_url', default='https://qms.nextgis.com/api/v1/icons/',
+               doc="Icons QMS API URL"),
     )
 
 
