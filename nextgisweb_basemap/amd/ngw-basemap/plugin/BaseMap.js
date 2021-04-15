@@ -56,14 +56,13 @@ define([
                             }));
                             return;
                         }
-                        
+
                         opts.source = {
                             "url": qms.url,
                             "minZoom": qms.z_min ? qms.z_min : undefined,
                             "maxZoom": qms.z_max ? qms.z_max : undefined,
                             "attributions": qms.copyright_text,
                             "projection": "EPSG:" + qms.epsg,
-                            "crossOrigin": "anonymous"
                         };
 
                         if (!qms.y_origin_top) {
@@ -74,6 +73,7 @@ define([
                     opts.layer.opacity = bm.opacity ? bm.opacity : undefined;
                     opts.layer.visible = (idx === 0) ? true : false;
                     opts.source.wrapX = false;
+                    opts.source.crossOrigin = "anonymous";
 
                     if (bm.enabled) {
                         settings.basemaps.push(opts);
