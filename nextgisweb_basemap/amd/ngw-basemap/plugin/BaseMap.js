@@ -5,7 +5,7 @@ define([
     "dojo/json",
     "ngw-webmap/plugin/_PluginBase",
     "dojo/dom-construct",
-    "ngw-pyramid/i18n!basemap",
+    "@nextgisweb/pyramid/i18n!",
     "openlayers/ol",
     "../resource/proj4"
 ], function (

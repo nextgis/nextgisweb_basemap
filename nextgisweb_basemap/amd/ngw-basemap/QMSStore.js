@@ -3,7 +3,7 @@ define([
     "dojo/_base/lang",
     "dojo/_base/xhr",
     "dojo/store/JsonRest",
-    "ngw/settings!basemap"
+    "@nextgisweb/pyramid/settings!"
 ], function (
     declare,
     lang,

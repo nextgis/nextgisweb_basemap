@@ -8,11 +8,10 @@ define([
     "dijit/_TemplatedMixin",
     "dijit/_WidgetsInTemplateMixin",
     "./QMSStore",
-    "ngw-pyramid/i18n!basemap",
-    "ngw-pyramid/hbs-i18n",
+    "@nextgisweb/pyramid/i18n!",
     "ngw-resource/serialize",
     "dojo/text!./template/LayerWidget.hbs",
-    "ngw/settings!basemap",
+    "@nextgisweb/pyramid/settings!",
     // template
     "dijit/form/ValidationTextBox",
     "dojox/layout/TableContainer"
@@ -26,14 +25,13 @@ define([
     _WidgetsInTemplateMixin,
     QMSStore,
     i18n,
-    hbsI18n,
     serialize,
     template,
     settings
 ) {
     return declare([_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, serialize.Mixin], {
         title: i18n.gettext("Basemap"),
-        templateString: hbsI18n(template, i18n),
+        templateString: i18n.renderTemplate(template),
         prefix: "basemap_layer",
 
         postCreate: function () {

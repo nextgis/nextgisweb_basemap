@@ -10,8 +10,7 @@ define([
     "dijit/tree/TreeStoreModel",
     "dijit/Tree",
     "dijit/tree/dndSource",
-    "ngw-pyramid/i18n!basemap",
-    "ngw-pyramid/hbs-i18n",
+    "@nextgisweb/pyramid/i18n!",
     "ngw-resource/serialize",
     "dojo/text!./template/WebMapWidget.hbs",
     // template
@@ -36,13 +35,12 @@ define([
     Tree,
     dndSource,
     i18n,
-    hbsI18n,
     serialize,
     template
 ) {
     return declare([ContentPane, _TemplatedMixin, _WidgetsInTemplateMixin, serialize.Mixin], {
         title: i18n.gettext("Basemaps"),
-        templateString: hbsI18n(template, i18n),
+        templateString: i18n.renderTemplate(template),
 
         constructor: function () {
             this.itemStore = new ItemFileWriteStore({data: {
