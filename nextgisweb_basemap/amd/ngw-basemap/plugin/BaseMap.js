@@ -40,7 +40,7 @@ define([
                     var opts = { "base": {}, "layer": {}, "source": {} },
                         qms;
 
-                    opts.base.mid = "ngw/openlayers/layer/XYZ";
+                    opts.base.mid = "ngw-webmap/ol/layer/XYZ";
                     opts.base.keyname = bm.keyname;
                     opts.layer.title = bm.display_name;
 
@@ -83,7 +83,7 @@ define([
                 settings.basemaps.push({
                     "base": {
                         "keyname": "blank",
-                        "mid": "ngw/openlayers/layer/XYZ"
+                        "mid": "ngw-webmap/ol/layer/XYZ"
                     },
                     "layer": {
                         "title": "None",
