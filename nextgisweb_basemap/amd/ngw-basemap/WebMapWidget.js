@@ -21,6 +21,7 @@ define([
     "dijit/form/Button",
     "dijit/form/Form",
     "ngw-resource/ResourcePicker",
+    "ngw-resource/form/ResourceLink",
     "ngw-pyramid/form/DisplayNameTextBox",
     "ngw-pyramid/form/ScaleTextBox"
 ], function (
@@ -134,6 +135,7 @@ define([
                     widget.wDisplayName.set("value", widget.getItemValue("display_name"));
                     widget.wEnabled.set("checked", widget.getItemValue("enabled"));
                     widget.wOpacity.set("value", widget.getItemValue("opacity"));
+                    widget.wLink.set("value", widget.getItemValue("resource_id"));
 
                     // Show side panel
                     if (!oldValue) {
