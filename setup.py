@@ -7,7 +7,7 @@ with io.open('VERSION', 'r') as fd:
     VERSION = fd.read().rstrip()
 
 requires = (
-    'nextgisweb>=3.9.0.dev2',
+    'nextgisweb>=3.9.0.dev10',
 )
 
 entry_points = {
