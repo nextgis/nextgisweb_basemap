@@ -27,6 +27,8 @@ class BasemapLayer(Base, Resource):
 
     url = db.Column(db.Unicode, nullable=False)
     qms = db.Column(db.Unicode)
+    copyright_text = db.Column(db.Unicode)
+    copyright_url = db.Column(db.Unicode)
 
     @classmethod
     def check_parent(cls, parent):
@@ -67,6 +69,8 @@ class BasemapLayerSerializer(Serializer):
 
     url = SP(read=DataScope.read, write=DataScope.write)
     qms = SP(read=DataScope.read, write=DataScope.write)
+    copyright_text = SP(read=DataScope.read, write=DataScope.write)
+    copyright_url = SP(read=DataScope.read, write=DataScope.write)
 
 
 class _basemaps_attr(SP):

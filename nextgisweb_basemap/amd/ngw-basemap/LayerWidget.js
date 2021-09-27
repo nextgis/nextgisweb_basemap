@@ -66,6 +66,8 @@ define([
 
                 this.qmsSettings.watch("checked", function (attr, oval, nval) {
                     widget.url.set("disabled", nval);
+                    widget.copyrightText.set("disabled", nval);
+                    widget.copyrightUrl.set("disabled", nval);
                 });
 
                 widget.url.on("input", function (event) {
@@ -76,7 +78,11 @@ define([
                     qmsStore.get(nval).then(function (service) {
                         widget.qms = service;
                         widget.url.set("disabled", true);
+                        widget.copyrightText.set("disabled", true);
+                        widget.copyrightUrl.set("disabled", true);
                         widget.url.set("value", service.url);
+                        widget.copyrightText.set("value", "");
+                        widget.copyrightUrl.set("value", "");
                         
                         widget.qmsSettings.set("disabled", false);
                         widget.qmsSettings.set("checked", true);
@@ -93,6 +99,10 @@ define([
             } else {
                 value.qms = null;
             }
+
+            console.log(value);
+            if (value.copyright_text == "") { value.copyright_text = null }
+            if (value.copyright_url == "") { value.copyright_url = null }
         },
 
         deserializeInMixin: function (data) {

@@ -18,6 +18,14 @@ msgstr "Подложки"
 msgid "URL"
 msgstr "URL"
 
+#: amd/ngw-basemap/template/LayerWidget.hbs:17
+msgid "Copyright text"
+msgstr "Текст для копирайта"
+
+#: amd/ngw-basemap/template/LayerWidget.hbs:23
+msgid "Copyright URL"
+msgstr "Ссылка на копирайт"
+
 #: amd/ngw-basemap/template/WebMapWidget.hbs:14
 msgid "Add"
 msgstr "Добавить"
@@ -45,7 +53,3 @@ msgstr "Непрозрачность"
 #: amd/ngw-basemap/template/WebMapWidget.hbs:78
 msgid "Resource"
 msgstr "Ресурс"
-
-#~ msgid "Search in QMS"
-#~ msgstr "Искать в QMS"
-

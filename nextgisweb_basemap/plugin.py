@@ -13,6 +13,8 @@ class BasemapPlugin(WebmapPlugin):
         basemaps = [dict(
             url=bm.resource.url,
             qms=bm.resource.qms,
+            copyright_text=bm.resource.copyright_text,
+            copyright_url=bm.resource.copyright_url,
             **bm.to_dict())
             for bm in webmap.basemaps]
         return (

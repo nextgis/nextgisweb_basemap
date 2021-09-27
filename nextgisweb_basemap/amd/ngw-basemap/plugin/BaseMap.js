@@ -38,7 +38,7 @@ define([
 
                 array.forEach(wmplugin.basemaps, function (bm, idx) {
                     var opts = { "base": {}, "layer": {}, "source": {} },
-                        qms;
+                        qms, copyright_text, copyright_url;
 
                     opts.base.mid = "ngw-webmap/ol/layer/XYZ";
                     opts.base.keyname = bm.keyname;
@@ -46,6 +46,8 @@ define([
 
                     if (!bm.qms) {
                         opts.source.url = bm.url;
+                        copyright_text = bm.copyright_text;
+                        copyright_url = bm.copyright_url;
                     } else {
                         qms = json.parse(bm.qms);
 
@@ -57,16 +59,26 @@ define([
                             return;
                         }
 
+                        copyright_text = qms.copyright_text;
+                        copyright_url = qms.copyright_url;
+
                         opts.source = {
                             "url": qms.url,
                             "minZoom": qms.z_min ? qms.z_min : undefined,
                             "maxZoom": qms.z_max ? qms.z_max : undefined,
-                            "attributions": qms.copyright_text,
                             "projection": "EPSG:" + qms.epsg,
                         };
 
                         if (!qms.y_origin_top) {
                             opts.source.url = lang.replace(opts.source.url, {"x": "{x}", "y": "{-y}", "z": "{z}"});
+                        }
+                    }
+
+                    if (copyright_text) {
+                        opts.source.attributions = copyright_text;
+                        if (copyright_url) {
+                            opts.source.attributions = '<a href="' + copyright_url + '">'
+                                + opts.source.attributions + '</a>';
                         }
                     }
 
