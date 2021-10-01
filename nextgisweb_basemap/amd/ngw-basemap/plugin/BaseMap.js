@@ -84,7 +84,6 @@ define([
 
                     opts.layer.opacity = bm.opacity ? bm.opacity : undefined;
                     opts.layer.visible = (idx === 0) ? true : false;
-                    opts.source.wrapX = false;
                     opts.source.crossOrigin = "anonymous";
 
                     if (bm.enabled) {
