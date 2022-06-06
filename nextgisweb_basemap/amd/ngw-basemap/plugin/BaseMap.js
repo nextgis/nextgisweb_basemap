@@ -40,7 +40,6 @@ define([
                     var opts = { "base": {}, "layer": {}, "source": {} },
                         qms, copyright_text, copyright_url;
 
-                    opts.base.mid = "ngw-webmap/ol/layer/XYZ";
                     opts.base.keyname = bm.keyname;
                     opts.layer.title = bm.display_name;
 
@@ -72,6 +71,12 @@ define([
                         if (!qms.y_origin_top) {
                             opts.source.url = lang.replace(opts.source.url, {"x": "{x}", "y": "{-y}", "z": "{z}"});
                         }
+                    }
+
+                    if (opts.source.url.includes("{q}")) {
+                        opts.base.mid = "ngw-webmap/ol/layer/QuadKey";
+                    } else {
+                        opts.base.mid = "ngw-webmap/ol/layer/XYZ";
                     }
 
                     if (copyright_text) {
