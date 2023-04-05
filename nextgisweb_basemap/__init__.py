@@ -1,8 +1,11 @@
 from nextgisweb.component import Component, require
 from nextgisweb.lib.config import Option
 
-from .model import Base
+from .model import Base, BasemapLayer, BasemapWebMap
 from .util import COMP_ID
+
+
+__all__ = ['BasemapComponent', 'BasemapLayer', 'BasemapWebMap']
 
 
 class BasemapComponent(Component):
