@@ -1,15 +1,16 @@
 from sqlalchemy.ext.orderinglist import ordering_list
 
-from nextgisweb import db
-from nextgisweb.models import declarative_base
-from nextgisweb.webmap import WebMap
+from nextgisweb.env.model import declarative_base
+from nextgisweb.lib import db
 from nextgisweb.resource import (
     Resource,
     ResourceGroup,
     Serializer,
     SerializedProperty as SP,
     DataScope,
-    ResourceScope)
+    ResourceScope,
+)
+from nextgisweb.webmap import WebMap
 
 from .util import _
 
