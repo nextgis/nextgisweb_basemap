@@ -35,9 +35,3 @@ class BasemapComponent(Component):
 def pkginfo():
     return dict(components=dict(
         basemap='nextgisweb_basemap'))
-
-
-def amd_packages():
-    return (
-        ('ngw-basemap', 'nextgisweb_basemap:amd/ngw-basemap'),
-    )

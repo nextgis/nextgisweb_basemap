@@ -6,18 +6,13 @@ with io.open('VERSION', 'r') as fd:
     VERSION = fd.read().rstrip()
 
 requires = (
-    'nextgisweb>=4.4.0.dev6',
+    'nextgisweb>=4.4.0.dev8',
 )
 
 entry_points = {
     'nextgisweb.packages': [
         'nextgisweb_basemap = nextgisweb_basemap:pkginfo',
     ],
-
-    'nextgisweb.amd_packages': [
-        'nextgisweb_basemap = nextgisweb_basemap:amd_packages',
-    ],
-
 }
 
 setup(
