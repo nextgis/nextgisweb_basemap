@@ -1,7 +1,6 @@
 from nextgisweb.webmap.plugin import WebmapPlugin
 
 
-@WebmapPlugin.registry.register
 class BasemapPlugin(WebmapPlugin):
 
     @classmethod
