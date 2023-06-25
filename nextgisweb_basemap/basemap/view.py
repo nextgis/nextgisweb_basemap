@@ -1,5 +1,6 @@
 from nextgisweb.resource import Widget
 from nextgisweb.webmap import WebMap
+
 from .model import BasemapLayer
 
 

@@ -1,37 +1,28 @@
-from nextgisweb.env import Component, require
-from nextgisweb.lib.config import Option
+from importlib import import_module
+from warnings import warn
 
-from .model import Base, BasemapLayer, BasemapWebMap
-from .util import COMP_ID
-
-
-__all__ = ['BasemapComponent', 'BasemapLayer', 'BasemapWebMap']
-
-
-class BasemapComponent(Component):
-    identity = COMP_ID
-    metadata = Base.metadata
-
-    def initialize(self):
-        from . import plugin
-
-    @require('resource', 'webmap')
-    def setup_pyramid(self, config):
-        from . import view
-
-    def client_settings(self, request):
-        return dict(
-            qms_geoservices_url=self.options['qms_geoservices_url'],
-            qms_icons_url=self.options['qms_icons_url'])
-
-    option_annotations = (
-        Option('qms_geoservices_url', default='https://qms.nextgis.com/api/v1/geoservices/',
-               doc="Geo Services QMS API URL"),
-        Option('qms_icons_url', default='https://qms.nextgis.com/api/v1/icons/',
-               doc="Icons QMS API URL"),
-    )
+from nextgisweb.imptool import deprecate
 
 
 def pkginfo():
-    return dict(components=dict(
-        basemap='nextgisweb_basemap'))
+    return dict(components=dict(basemap='nextgisweb_basemap.basemap'))
+
+
+def __getattr__(name):
+    ver = '1.7.0.dev1'
+    cmp = 'basemap'
+    pkg = f'nextgisweb_{cmp}'
+    new = f'{pkg}.{cmp}'
+    m = import_module(new)
+    if hasattr(m, name):
+        warn(
+            f"Since {ver} {cmp} component has been moved to {new}. "
+            f"Update import to {new}.{name}.", stacklevel=2)
+        return getattr(m, name)
+
+    raise AttributeError
+
+
+deprecate(
+    'nextgisweb_basemap.view', 'nextgisweb_basemap.basemap.view',
+    since='1.7.0.dev1', remove='1.8.0.dev0')

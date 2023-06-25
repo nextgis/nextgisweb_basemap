@@ -2,14 +2,15 @@ from sqlalchemy.ext.orderinglist import ordering_list
 
 from nextgisweb.env.model import declarative_base
 from nextgisweb.lib import db
+
 from nextgisweb.resource import (
+    DataScope,
     Resource,
     ResourceGroup,
-    Serializer,
-    SerializedProperty as SP,
-    DataScope,
     ResourceScope,
+    Serializer,
 )
+from nextgisweb.resource import SerializedProperty as SP
 from nextgisweb.webmap import WebMap
 
 from .util import _
@@ -92,5 +93,6 @@ class BasemapWebMapSerializer(Serializer):
     identity = BasemapWebMap.__tablename__
     resclass = WebMap
 
-    basemaps = _basemaps_attr(read=ResourceScope.read,
-                              write=ResourceScope.update)
+    basemaps = _basemaps_attr(
+        read=ResourceScope.read,
+        write=ResourceScope.update)
