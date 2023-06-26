@@ -10,7 +10,7 @@ requires = (
 
 entry_points = {
     'nextgisweb.packages': [
-        'nextgisweb_basemap = nextgisweb_basemap:pkginfo',
+        'nextgisweb_basemap = nextgisweb:single_component',
     ],
 }
 
